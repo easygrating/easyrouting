@@ -1,0 +1,57 @@
+{
+  "name": "@easygrating/easyrouting",
+  "version": "0.0.1",
+  "description": "Automated express js router",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "files": [
+    "./dist/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --coverage --detectOpenHandles --passWithNoTests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easygrating/easyrouting.git"
+  },
+  "keywords": [
+    "express",
+    "router",
+    "ts"
+  ],
+  "contributors": [
+    {
+      "name": "Luis David",
+      "url": "https://github.com/orozco92"
+    },
+    {
+      "name": "Luis Miguel",
+      "url": "https://github.com/luismi930213"
+    },
+    {
+      "name": "Nestor Castro",
+      "url": "https://github.com/nacastroc"
+    },
+    {
+      "name": "Reinier Acosta",
+      "url": "https://github.com/KingNierAcosta"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/easygrating/easyrouting/issues"
+  },
+  "homepage": "https://github.com/easygrating/easyrouting#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.10.4",
+    "express": "^4.18.2",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
