@@ -1,5 +1,3 @@
-// use barrel export here
-
 /**
  * Init event names
  */

@@ -18,11 +18,8 @@ export const routerEvents = new EventEmitter();
  */
 export async function RoutingInitializer(app: Application) {
   const config: EasyRoutingConfig = EasyRoutingConfig.getConfig();
-
   routerEvents.emit(RouterInitEvents.BEFORE_INIT, app);
-
   const routes = await setupRoutes(app, config);
-
   routerEvents.emit(RouterInitEvents.AFTER_INIT, app, routes);
 }
 
