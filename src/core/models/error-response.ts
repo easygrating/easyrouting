@@ -1,15 +1,16 @@
-import { StatusCodes } from "http-status-codes";
+import { StatusCodes, getReasonPhrase } from "http-status-codes";
+import { ResponseTypes } from "../enums";
 
 /**
  * ErrorResponse class for handling error responses.
  * @usage
 ```
-let errorResponse = ErrorResponse.badRequest('Invalid input', ['Name is required']);
+let errorResponse = ErrorResponse.createError(StatusCodes.INTERNAL_SERVER_ERROR, ['Name is required']);
 ```
  */
 export class ErrorResponse {
-  responseType: string;
-  statusCode: number;
+  responseType: ResponseTypes;
+  statusCode: StatusCodes;
   message: string;
   errors: string[];
 
@@ -19,22 +20,22 @@ export class ErrorResponse {
    * @param {string} message - The error message.
    * @param {string[]} errors - The array of validation errors.
    */
-  constructor(statusCode: number, message: string, errors: string[]) {
-    this.responseType = "error";
+  constructor(statusCode: StatusCodes, message: string, errors: string[]) {
+    this.responseType = ResponseTypes.ERROR;
     this.statusCode = statusCode;
     this.message = message;
     this.errors = errors;
   }
 
   /**
-   * Factory method for creating a bad request error response.
+   * Factory method for creating a request error response.
+   * @param {StatusCodes} statusCode - The error status code.
    * @param {string} message - The error message.
    * @param {string[]} errors - The array of validation errors.
    * @returns {ErrorResponse} A new ErrorResponse instance.
    */
-  static badRequest(message: string, errors: string[]) {
-    return new ErrorResponse(StatusCodes.BAD_REQUEST, message, errors);
+  static createError(statusCode: StatusCodes, errors: string[]): ErrorResponse {
+    const message = getReasonPhrase(statusCode);
+    return new ErrorResponse(statusCode, message, errors);
   }
-
-  // TODO: more static methods for other status codes can be added as needed or through inheritance.
 }
