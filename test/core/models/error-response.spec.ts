@@ -11,7 +11,7 @@ describe("ErrorResponse", () => {
     );
 
     expect(errorResponse.responseType).toEqual("error");
-    expect(errorResponse.statusCode).toEqual(StatusCodes.BAD_REQUEST);
+    expect(errorResponse.code).toEqual(StatusCodes.BAD_REQUEST);
     expect(errorResponse.message).toEqual(
       getReasonPhrase(StatusCodes.BAD_REQUEST)
     );
@@ -26,7 +26,7 @@ describe("ErrorResponse", () => {
     );
 
     expect(errorResponse.responseType).toEqual("error");
-    expect(errorResponse.statusCode).toEqual(StatusCodes.BAD_REQUEST);
+    expect(errorResponse.code).toEqual(StatusCodes.BAD_REQUEST);
     expect(errorResponse.message).toEqual(
       getReasonPhrase(StatusCodes.BAD_REQUEST)
     );
@@ -39,7 +39,7 @@ describe("ErrorResponse", () => {
     const errorResponse = ErrorResponse.badRequest(message, errors);
 
     expect(errorResponse.responseType).toBe('error');
-    expect(errorResponse.statusCode).toBe(StatusCodes.BAD_REQUEST);
+    expect(errorResponse.code).toBe(StatusCodes.BAD_REQUEST);
     expect(errorResponse.message).toBe(message);
     expect(errorResponse.errors).toEqual(errors);
 });

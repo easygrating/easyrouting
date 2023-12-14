@@ -1,19 +1,19 @@
 import { StatusCodes } from "http-status-codes";
 
 /**
- * Error wrapper with an http status property
+ * Error wrapper with an http status code property
  */
 export class HttpError extends Error {
-  private _status: StatusCodes;
+  private _code: StatusCodes;
   constructor(message: string, statusCode: StatusCodes) {
     super(message);
-    this._status = statusCode;
+    this._code = statusCode;
   }
 
   /**
-   * Return the http status for this error
+   * Return the http status code for this error
    */
-  get status(): StatusCodes {
-    return this._status;
+  get code(): StatusCodes {
+    return this._code;
   }
 }
