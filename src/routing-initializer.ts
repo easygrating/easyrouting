@@ -5,6 +5,7 @@ import { RouterConfigInterface } from "./core/interfaces";
 import _ from "lodash";
 import { EventEmitter } from "events";
 import { RouterInitEvents } from "./core/enums";
+import { default404ErrorHandler, defaultErrorHandler } from "./routes";
 
 /**
  * Library init events
@@ -47,6 +48,9 @@ async function setupRoutes(app: Application, config: EasyRoutingConfig) {
     else app.use(routeConfig.path, routeConfig.router);
     routeConsole.push(routeConfig);
   }
+
+  if (config.default404Handler) app.use(default404ErrorHandler);
+  if (config.defaultErrorHandler) app.use(defaultErrorHandler);
 
   if (config.printRouteTable)
     console.table(routeConsole, ["order", "path", "name"]);
