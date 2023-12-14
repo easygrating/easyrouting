@@ -5,7 +5,7 @@ import { EasyRoutingConfig, ErrorResponse, HttpError } from "../core/models";
 /**
  * Default error handler
  *
- * Send an error response with status code from error or 500 is none is provided
+ * Send an error response with status code from error, or 500 if none is provided
  * @param error Error object resulting from call next(error)
  * @param req express request
  * @param res express response

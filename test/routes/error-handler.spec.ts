@@ -39,7 +39,7 @@ describe("error-handler", () => {
     expect(res.send).toHaveBeenCalledWith(notFoundResponse);
   });
 
-  it("should send an error response from an error response", () => {
+  it("should send an error response", () => {
     const errorCode = StatusCodes.NOT_IMPLEMENTED;
     const errorResponse = ErrorResponse.createError(errorCode);
     defaultErrorHandler(errorResponse, req as Request, res as Response, next);

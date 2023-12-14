@@ -1,7 +1,7 @@
 import { HttpError } from "../../../src";
 
 describe("HttpError", () => {
-  it("should create an http error with a staus code", () => {
+  it("should create an http error with a status code", () => {
     const message = "custom http error";
     const code = 400;
     const error = new HttpError(message, code);
