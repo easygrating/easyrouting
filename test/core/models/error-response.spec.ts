@@ -32,4 +32,15 @@ describe("ErrorResponse", () => {
     );
     expect(errorResponse.errors).toEqual(errors);
   });
+
+  it('should create a bad request error response with custom message', () => {
+    const errors = ['Name is required'];
+    const message = 'Validation error';
+    const errorResponse = ErrorResponse.badRequest(message, errors);
+
+    expect(errorResponse.responseType).toBe('error');
+    expect(errorResponse.statusCode).toBe(StatusCodes.BAD_REQUEST);
+    expect(errorResponse.message).toBe(message);
+    expect(errorResponse.errors).toEqual(errors);
+});
 });

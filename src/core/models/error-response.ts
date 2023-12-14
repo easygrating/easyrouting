@@ -12,7 +12,7 @@ export class ErrorResponse {
   responseType: ResponseTypes;
   statusCode: StatusCodes;
   message: string;
-  errors: string[];
+  errors?: string[];
 
   /**
    * ErrorResponse constructor.
@@ -20,7 +20,7 @@ export class ErrorResponse {
    * @param {string} message - The error message.
    * @param {string[]} errors - The array of validation errors.
    */
-  constructor(statusCode: StatusCodes, message: string, errors: string[]) {
+  constructor(statusCode: StatusCodes, message: string, errors?: string[]) {
     this.responseType = ResponseTypes.ERROR;
     this.statusCode = statusCode;
     this.message = message;
@@ -34,8 +34,18 @@ export class ErrorResponse {
    * @param {string[]} errors - The array of validation errors.
    * @returns {ErrorResponse} A new ErrorResponse instance.
    */
-  static createError(statusCode: StatusCodes, errors: string[]): ErrorResponse {
+  static createError(statusCode: StatusCodes, errors?: string[]): ErrorResponse {
     const message = getReasonPhrase(statusCode);
     return new ErrorResponse(statusCode, message, errors);
+  }
+
+  /**
+   * Factory method for creating a bad request error response.
+   * @param {string} message - The error message.
+   * @param {string[]} errors - The array of validation errors.
+   * @returns {ErrorResponse} A new ErrorResponse instance.
+   */
+  static badRequest(message: string, errors: string[]): ErrorResponse {
+    return new ErrorResponse(StatusCodes.BAD_REQUEST, message, errors);
   }
 }
