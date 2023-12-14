@@ -8,6 +8,7 @@ export class HttpError extends Error {
   constructor(message: string, statusCode: StatusCodes) {
     super(message);
     this._code = statusCode;
+    this.name = "HttpError";
   }
 
   /**
