@@ -10,9 +10,11 @@ export class EasyRoutingConfig {
   private constructor() {
     this.config = {
       defaultErrorHandler: true,
+      default404Handler: true,
       routerPath: "./routes",
       useGenerics: true,
       printRouteTable: false,
+      sendStackTrace: false,
     };
   }
 
@@ -52,10 +54,24 @@ export class EasyRoutingConfig {
   }
 
   /**
+   * Use default 404 handler
+   */
+  get default404Handler() {
+    return this.config.default404Handler;
+  }
+
+  /**
    * Print route table in console
    */
   get printRouteTable() {
     return this.config.printRouteTable;
+  }
+
+  /**
+   * Send error stack trace to client
+   */
+  get sendStackTrace() {
+    return this.config.sendStackTrace;
   }
 
   /**
