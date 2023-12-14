@@ -8,6 +8,7 @@ describe("routing-initializer", () => {
   EasyRoutingConfig.getConfig().configure({
     defaultErrorHandler: false,
     useGenerics: false,
+    default404Handler: false,
     routerPath: "./example/routes",
   });
 
