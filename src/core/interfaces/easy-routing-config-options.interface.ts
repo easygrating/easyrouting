@@ -10,4 +10,5 @@ export interface EasyRoutingConfigOptionsInterface {
   defaultErrorHandler: boolean;
   printRouteTable: boolean;
   sendStackTrace: boolean;
+  printStackTrace: boolean;
 }

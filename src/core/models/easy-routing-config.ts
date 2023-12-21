@@ -15,6 +15,7 @@ export class EasyRoutingConfig {
       useGenerics: true,
       printRouteTable: false,
       sendStackTrace: false,
+      printStackTrace: false,
     };
   }
 
@@ -72,6 +73,13 @@ export class EasyRoutingConfig {
    */
   get sendStackTrace() {
     return this.config.sendStackTrace;
+  }
+
+  /**
+   * Print error stack trace in console
+   */
+  get printStackTrace() {
+    return this.config.printStackTrace;
   }
 
   /**
