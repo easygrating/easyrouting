@@ -29,6 +29,9 @@ export function defaultErrorHandler(
       StatusCodes.INTERNAL_SERVER_ERROR
     );
 
+  const printError = EasyRoutingConfig.getConfig().printStackTrace;
+  if (printError) console.error(error);
+
   if (!EasyRoutingConfig.getConfig().sendStackTrace) delete errorResponse.stack;
 
   res.status(errorResponse.code).send(errorResponse);
